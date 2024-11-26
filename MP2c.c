@@ -6,7 +6,7 @@
 extern double asm_dot_product(double *A, double *B, int n);
 
 double c_dot_product(double *A, double *B, int n) {
-	printf("in function\n");
+	
     double sdot = 0.0;
     int i;
     for (i=0; i < n; i++) {
@@ -31,7 +31,7 @@ int main() {
     scanf("%d", &N);
 
     
-   
+   // C kernel
     double start = get_time_in_ms();
 	double sdot = c_dot_product(A, B, N);
 	double end = get_time_in_ms();
@@ -40,7 +40,7 @@ int main() {
 	
 	printf("C Dot Product: %f (Time: %f ms)\n", sdot, end - start);
 
-    
+    // asm kernel
     start = get_time_in_ms();
     sdot = asm_dot_product(A, B, N);
     end = get_time_in_ms();
